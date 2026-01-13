@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-navy-50 text-navy-900;
+  }
+
+  /* Custom focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-signal-500 ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Maritime-style input fields */
+  .input-field {
+    @apply w-full px-4 py-3 bg-white border-2 border-navy-200 rounded-lg
+           font-body text-navy-900 placeholder-navy-400
+           transition-all duration-200
+           hover:border-navy-300
+           focus:border-navy-600 focus:ring-0 focus:outline-none;
+  }
+
+  .input-field:disabled {
+    @apply bg-navy-100 cursor-not-allowed opacity-60;
+  }
+
+  .input-label {
+    @apply block text-sm font-semibold text-navy-700 mb-1.5 uppercase tracking-wide;
+  }
+
+  /* Primary action button */
+  .btn-primary {
+    @apply w-full py-3.5 px-6 bg-navy-900 text-white font-display font-semibold text-lg
+           uppercase tracking-wider rounded-lg
+           transition-all duration-200
+           hover:bg-navy-800 hover:shadow-card-hover
+           active:scale-[0.98]
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply py-3 px-5 bg-white text-navy-700 font-display font-semibold
+           uppercase tracking-wide rounded-lg border-2 border-navy-200
+           transition-all duration-200
+           hover:border-navy-400 hover:bg-navy-50
+           active:scale-[0.98];
+  }
+
+  /* Signal/Warning button */
+  .btn-signal {
+    @apply py-3 px-5 bg-signal-500 text-white font-display font-semibold
+           uppercase tracking-wide rounded-lg
+           transition-all duration-200
+           hover:bg-signal-600 hover:shadow-card-hover
+           active:scale-[0.98];
+  }
+
+  /* Card component */
+  .card {
+    @apply bg-white rounded-xl border border-navy-100 shadow-card p-6;
+  }
+
+  /* Navigation link */
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg
+           font-display font-medium text-navy-600 uppercase tracking-wide
+           transition-all duration-200
+           hover:bg-navy-100 hover:text-navy-900;
+  }
+
+  .nav-link.active {
+    @apply bg-navy-900 text-white hover:bg-navy-800;
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-navy-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-navy-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-navy-400;
+}
+
+/* Diagonal stripe pattern for decorative elements */
+.stripe-pattern {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 4px,
+    rgba(16, 42, 67, 0.03) 4px,
+    rgba(16, 42, 67, 0.03) 8px
+  );
+}
